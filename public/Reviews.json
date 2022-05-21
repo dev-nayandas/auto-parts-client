@@ -1,0 +1,44 @@
+[
+    {    "id": 1,
+        "img": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+       
+        "name": "Dipto",
+        "revie": "We are thrilled about our continued collaboration with Tile and the growing list of partners who are delivering great wireless experiences on 12th Gen Intel Core processor-based laptops with integrated Intel Wi-Fi 6E (Gig+). ",
+        "rating": 4.8
+    },
+    {    "id": 2,
+        "img": "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+       
+        "name": "Rayhan",
+        "revie": " Just because you're small doesn't mean you can't perform like the big boys. The 12.5-inch Vaio SX12 may be tiny when compared to the usual 13-inch or 15-inch Ultrabook, but its 11th gen processor and FHD IPS display are just as fast and capable.",
+        "rating": 5
+    },
+    {   "id": 3,
+        "img": "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        
+        "name": "Pankaj",
+        "revie": "Display options and port selection are similar to that of the Precision 3570 including the availability of an optional UHD 60 Hz panel. There's no MediaTek Wi-Fi option with the Precision 357",
+        "rating": 4.2
+    },
+    {    "id": 4,
+        "img": "https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+       
+        "name": "Sumon",
+        "revie": "Moreover, the upgrade to the Jasper Lake architecture introduces Bluetooth 5.0 and WiFi 6 connectivity. However, the P2 Max 2022 retains its predecessor's 8.9-inch and 2,560 x 1,600-pixel display. Likewise, GPD has not changed the machine's micro HDMI port",
+        "rating": 3.9
+    },
+    {   "id": 5,
+        "img": "https://images.pexels.com/photos/1006293/pexels-photo-1006293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        
+        "name": "Alex",
+        "revie": "Additionally, the Latitude 5430 has up to 64 GB of DDR4-3200 socketed RAM and M.2 2280 storage. Like the rest of the new Latitude 5000 series, the Latitude 5430 will be available with 41 Wh and 58 Wh batteries",
+        "rating": 4.4
+    },
+    {   "id": 6,
+        "img": "https://images.pexels.com/photos/109371/pexels-photo-109371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        
+        "name": "David",
+        "revie": "the chassis is basically still the same, but the lid design changed a bit. Instead of the large and illuminated Legion logo, which was also imprinted on the side of the lid, there is now only a subtle Legion lettering in the upper part of the lid",
+        "rating": 4.6
+    }
+]
