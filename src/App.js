@@ -11,6 +11,8 @@ import Purchase from './Pages/Purchase/Purchase';
 import RequireAuth from './Pages/Home/Login/RequireAuth';
 import Parts from './Pages/Home/Parts';
 import Booking from './Pages/Home/Booking';
+import Error404 from './Pages/Error404/Error404';
+import MyPortfolio from './Pages/MyPorfolio/MyPortfolio';
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/home" element={<Home/>} />
+        <Route path="/myporfolio" element={<MyPortfolio/>} />
         <Route path="/parts" element={<Parts/>}></Route>
+
         {/* <Route path="/part/:partId" element={<Booking/>}></Route> */}
         <Route path="/part/:partId" element={
         <RequireAuth>
@@ -33,8 +37,10 @@ function App() {
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/blogs" element={<Blogs/>} />
         {/* <Route path="about" element={<About />} /> */}
+        <Route path="/*" element={<Error404/>} />
       </Routes>
       <Footer></Footer>
+     
     </div>
   );
 }
