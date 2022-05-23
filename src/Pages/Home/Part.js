@@ -1,7 +1,10 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 
 const Part = ({part}) => {
     const {name,img, description,price,minQty, availQty } = part;
+
+    
     return (
         <div class="card w-96 bg-base-100 shadow-xl">
             <figure class="px-10 pt-10">

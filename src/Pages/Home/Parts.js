@@ -3,6 +3,7 @@ import Part from './Part';
 
 const Parts = () => {
  const [parts, setParts] = useState([]);
+ 
 
     useEffect(()=>{
         fetch('parts.json')
@@ -19,6 +20,7 @@ const Parts = () => {
                 parts.slice(0,3).map(part =><Part
                 key={part.id}
                 part={part}
+              
                 ></Part>)
             }
            </div>
