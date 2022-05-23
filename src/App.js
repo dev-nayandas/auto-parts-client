@@ -9,6 +9,8 @@ import Blogs from './Pages/Home/Blogs';
 import SignUp from './Pages/Home/Login/SignUp';
 import Purchase from './Pages/Purchase/Purchase';
 import RequireAuth from './Pages/Home/Login/RequireAuth';
+import Parts from './Pages/Home/Parts';
+import Booking from './Pages/Home/Booking';
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/home" element={<Home/>} />
-        <Route path="/purchase" element={
+        <Route path="/parts" element={<Parts/>}></Route>
+        {/* <Route path="/part/:partId" element={<Booking/>}></Route> */}
+        <Route path="/part/:partId" element={
         <RequireAuth>
           <Purchase/>
 

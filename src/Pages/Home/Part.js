@@ -2,11 +2,12 @@ import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 const Part = ({part}) => {
-    const {name,img, description,price,minQty, availQty } = part;
+    const {id,name,img, description,price,minQty, availQty } = part;
 
     const navigate = useNavigate();
     const bookNow =() =>{
-        navigate('/purchase')
+        navigate(`/part/` + id )
+        
     }
     return (
         <div class="card w-96 bg-base-100 shadow-xl">
