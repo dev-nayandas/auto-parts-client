@@ -1,41 +1,66 @@
 import React from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { async } from '@firebase/util';
 
-const Login = () => {
+const SignUp = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth);
+
+      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     if (gUser) {
         console.log(gUser);
     }
 
     let signError;
-    if(loading || gLoading){
+    if (loading || gLoading || updateError) {
         <button class="btn btn-square loading"></button>
     }
-    if(error || gError){
-        signError= <p className='text-red-500'>{error?.message || gError?.message}</p>
+    if (error || gError || updateError) {
+        signError = <p className='text-red-500'>{error?.message || gError?.message}</p>
     }
 
-    const onSubmit = data => {
+    const onSubmit = async data => {
         console.log(data);
-        signInWithEmailAndPassword(data.email, data.password)
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
     };
     return (
         <div className='flex  justify-center items-cneter'>
             <div class="card w-96 bg-base-100 shadow-xl">
                 <div class="card-body">
-                    <h2 class="text-center text-2xl font-bold">Login</h2>
+                    <h2 class="text-center text-2xl font-bold">Sign Up</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
+                    <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Email</span>
+
+                            </label>
+                            <input type="text" placeholder="your name" class="input input-bordered w-full max-w-xs"
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'name is requried'
+                                    },
+                                
+                                })}
+                            />
+                            <label class="label">
+                                {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                            
+
+
+                            </label>
+                        </div>
 
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
@@ -87,10 +112,10 @@ const Login = () => {
                             </label>
                         </div>
 
-                                {signError}
-                        <input className='btn  w-full max-w-xs' type="submit" value='login'/>
+                        {signError}
+                        <input className='btn  w-full max-w-xs' type="submit" value='SignUp' />
                     </form>
-                    <p>New to Auto Parts?</p><Link className='text-secondary' to='/signup'>Create an account</Link>
+                    <p>Already have an account?</p><Link className='text-secondary' to='/login'>Please Login</Link>
                     <div class="divider">OR</div>
                     <button onClick={() => signInWithGoogle()} class="btn">Continue With Google</button>
 
@@ -100,4 +125,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;
