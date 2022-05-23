@@ -6,7 +6,8 @@ const Part = ({part}) => {
 
     const navigate = useNavigate();
     const bookNow =() =>{
-        navigate(`/part/` + id )
+        const path = `/part/${id}`
+        navigate(path )
         
     }
     return (
