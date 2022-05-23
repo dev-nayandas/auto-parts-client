@@ -2,7 +2,7 @@ import React from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { async } from '@firebase/util';
 
 const SignUp = () => {
@@ -16,6 +16,7 @@ const SignUp = () => {
       ] = useCreateUserWithEmailAndPassword(auth);
 
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+      const navigate = useNavigate()
     if (gUser) {
         console.log(gUser);
     }
@@ -32,6 +33,7 @@ const SignUp = () => {
         console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
+        navigate('/home')
     };
     return (
         <div className='flex  justify-center items-cneter'>
@@ -42,7 +44,7 @@ const SignUp = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                     <div class="form-control w-full max-w-xs">
                             <label class="label">
-                                <span class="label-text">Email</span>
+                                <span class="label-text">Name</span>
 
                             </label>
                             <input type="text" placeholder="your name" class="input input-bordered w-full max-w-xs"
