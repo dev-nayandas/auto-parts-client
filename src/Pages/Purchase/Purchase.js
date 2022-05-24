@@ -6,7 +6,7 @@ const Purchase = () => {
     const { item, setItem } = useState({})
     useEffect(() => {
         // const url = `parts.json/${partId}`;
-        fetch(`parts.json/${partId}`)
+        fetch(`http://localhost:5000/parts/${partId}`)
             .then(res => res.json())
             .then(data => setItem(data))
     }, [])

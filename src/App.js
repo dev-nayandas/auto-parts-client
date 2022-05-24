@@ -12,7 +12,13 @@ import RequireAuth from './Pages/Home/Login/RequireAuth';
 import Parts from './Pages/Home/Parts';
 import Booking from './Pages/Home/Booking';
 import Error404 from './Pages/Error404/Error404';
-import MyPortfolio from './Pages/MyPorfolio/MyPortfolio';
+import Portfolio from './Pages/Home/Portfolio';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyOrders from './Pages/Dashboard/MyOrders';
+import AddAreview from './Pages/Dashboard/AddAreview';
+import MyProfile from './Pages/Dashboard/MyProfile';
+
+
 
 function App() {
   return (
@@ -21,18 +27,29 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/home" element={<Home/>} />
-        <Route path="/myporfolio" element={<MyPortfolio/>} />
+        <Route path="/portfolio" element={<Portfolio/>} />
+        
         <Route path="/parts" element={<Parts/>}></Route>
+       
 
         {/* <Route path="/part/:partId" element={<Booking/>}></Route> */}
+
         <Route path="/part/:partId" element={
         <RequireAuth>
           <Purchase/>
-
-            
         </RequireAuth>
-      
         } />
+
+        <Route path="/dashboard" element={
+        <RequireAuth>
+          <Dashboard/>
+        </RequireAuth>
+        } >
+          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route path='addareview' element={<AddAreview></AddAreview>}></Route>
+          <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+        </Route>
+
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/blogs" element={<Blogs/>} />
