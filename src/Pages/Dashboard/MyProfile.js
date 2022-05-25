@@ -11,8 +11,8 @@ const MyProfile = () => {
                 <div class="text-center lg:text-left">
                 <h1 class="text-5xl font-bold">My Profile</h1>
                     
-                    <h1 class="py-2 text-secondary">Name:{user?.displayName}</h1>
-                    <h1 class="py-2 text-secondary">email:{user?.email}</h1>
+                    <h1 class="py-2 text-secondary">Name:   {user?.displayName}</h1>
+                    <h1 class="py-2 text-secondary">email:  {user?.email}</h1>
                 </div>
                 <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div class="card-body">
