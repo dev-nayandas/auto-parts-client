@@ -22,7 +22,7 @@ const SignUp = () => {
       const navigate = useNavigate()
     if (user || gUser) {
         console.log(gUser);
-        // navigate('/home')
+        navigate('/home')
     }
 
     let signError;

@@ -2,11 +2,11 @@ import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 const Part = ({part}) => {
-    const {id,name,img, description,price,minQty, availQty } = part;
+    const {_id,name,img, description,price,minQty, availQty } = part;
 
     const navigate = useNavigate();
-    const bookNow =() =>{
-        const path = `/part/${id}`
+    const bookNow = id =>{
+        const path = `/part/${_id}`
         navigate(path )
         
     }
@@ -23,7 +23,7 @@ const Part = ({part}) => {
                 <h3 class="card-title">Available Quantity : {availQty}</h3>
                
                 <div class="card-actions">
-                    <button onClick={bookNow} class="btn btn-primary">Book Now</button>
+                    <button onClick={() =>bookNow(_id)} class="btn btn-primary">Book Now</button>
                 </div>
             </div>
         </div>
