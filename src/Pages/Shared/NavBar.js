@@ -6,6 +6,9 @@ import auth from '../../firebase.init';
 
 const NavBar = () => {
     const [user, loading, error] = useAuthState(auth);
+    if(loading){
+        <button class="btn btn-square loading"></button>
+    }
 
     const logout = () => {
         signOut(auth);
