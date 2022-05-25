@@ -9,8 +9,8 @@ const NavBar = () => {
 
     const logout = () => {
         signOut(auth);
-      };
-      
+    };
+
     const menuItems = <>
         <li><Link to='/home'>Home</Link></li>
         <li><Link to='/purchase'>Purchase</Link></li>
@@ -20,9 +20,14 @@ const NavBar = () => {
         {
             user && <li><Link to='/dashboard'>Dashboard</Link></li>
         }
-        
+
+        {/* <li><Link to='/portfolio'>My Portfolio</Link></li> */}
+
+
         <li>{user ? <button class="btn btn-ghost" onClick={logout}>SignOut</button>
             : <Link to='/login'>Login</Link>}</li>
+
+        <li><h1 className='text-secondary font-bold'>{user?.displayName}</h1></li>
 
 
     </>
@@ -44,7 +49,9 @@ const NavBar = () => {
                     {menuItems}
                 </ul>
             </div>
-
+            <div className='navbar-end'>
+                <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+            </div>
         </div>
     );
 };

@@ -8,7 +8,7 @@ const Dashboard = () => {
             <div class="drawer-content flex flex-col items-center justify-center">
                 {/* <h2 className='text-4xl text-center mt-5'>Welcome to Dashboard</h2> */}
                <Outlet></Outlet>
-                <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+              
 
             </div>
             <div class="drawer-side">
