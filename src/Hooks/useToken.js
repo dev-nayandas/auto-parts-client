@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react"
 
-const useToken = user =>{
+const useToken = user => {
     const [token, setToken] = useState('');
-    useEffect(()=>{
+    useEffect(() => {
         const email = user?.user?.email;
-        const currentUser = {email:email}
-        if(email){
-            fetch(`http://localhost:5000/user/${email}`,{
+        const currentUser = { email: email }
+        if (email) {
+            fetch(`https://shrouded-ridge-22657.herokuapp.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
                 },
-                body : JSON.stringify(currentUser)
+                body: JSON.stringify(currentUser)
             })
-            .then(res => res.json())
-            .then(data =>{
-                console.log('using server' , data)
-            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('using server', data)
+                })
         }
 
-    },[user]);
+    }, [user]);
     return [token];
 
 }

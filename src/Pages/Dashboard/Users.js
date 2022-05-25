@@ -4,13 +4,13 @@ import UserRow from './UserRow';
 
 const Users = () => {
 
-    // const {data: users, isLoding} = useQuery('users', () =>fetch('http://localhost:5000/users').then(res =>res.json()));
+    // const {data: users, isLoding} = useQuery('users', () =>fetch('https://shrouded-ridge-22657.herokuapp.com/users').then(res =>res.json()));
     // if(isLoding){
     //     return <button class="btn btn-square loading"></button> 
     // }
     const [users, setUser] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://shrouded-ridge-22657.herokuapp.com/users')
             .then(res => res.json())
             .then(data => setUser(data))
     }, [])
@@ -19,7 +19,7 @@ const Users = () => {
             <h1 className='text-4xl text-center text-secondary mb-2'>All Users</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
-                    
+
                     <thead>
                         <tr>
                             <th></th>
@@ -30,14 +30,14 @@ const Users = () => {
                         </tr>
                     </thead>
                     <tbody>
-                       
-                       {
-                           users.map(user => <UserRow
-                           key={user._id}
-                           user={user}
-                           ></UserRow>)
-                       }
-                      
+
+                        {
+                            users.map(user => <UserRow
+                                key={user._id}
+                                user={user}
+                            ></UserRow>)
+                        }
+
                     </tbody>
                 </table>
             </div>
