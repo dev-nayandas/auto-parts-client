@@ -12,7 +12,17 @@ const Purchase = () => {
         fetch(`https://shrouded-ridge-22657.herokuapp.com/parts/${partId}`)
             .then(res => res.json())
             .then(data => setItem(data))
-    }, [])
+    }, []);
+
+    const handleBooking = event =>{
+        event.preventDefault()
+        const email = event.target.eamil?.value;
+        const address = event.target.address?.value;
+        const quantity = event.target.quantity?.value;
+        const availQty= event.target.availQty?.value;
+        const phoneNumber = event.target.phoneNumber?.value;
+        console.log(quantity, email, phoneNumber, address,availQty)
+    }
 
     return (
         <div class="hero min-h-screen bg-base-200">
@@ -26,32 +36,36 @@ const Purchase = () => {
                     <img src={item.img} class="max-w-sm rounded-lg shadow-2xl" />
 
                 </div>
-                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <form onSubmit={handleBooking } class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div class="card-body">
                         <h1 className='text-center text-secondary font-bold'>{user?.displayName}</h1>
-                        <h1 className='text-center text-secondary font-bold'>{user?.email}</h1>
+                        
+                        <div class="form-control">
+                            <h1>Email</h1>
+                            <input name='email' type="text" disabled placeholder='' value={user?.email}  class="input input-bordered text-2xl font-bold" />
+                        </div>
                         <div class="form-control">
                             <h1>Address</h1>
-                            <input type="text" placeholder='Address' class="input input-bordered" />
+                            <input name='address' type="text" placeholder='Address' class="input input-bordered" />
                         </div>
                         <div class="form-control">
                             <h1>Phone Number</h1>
-                            <input type="text" placeholder="phone number" class="input input-bordered" />
+                            <input name='phoneNumber' type="text" placeholder="phone number" class="input input-bordered" />
                         </div>
                         <div class="form-control">
                             <h1>Available Quantity</h1>
-                            <input type="text" disabled placeholder={item.availQty} class="input input-bordered text-2xl font-bold" />
+                            <input name='availQty' type="text" disabled placeholder={item.availQty} class="input input-bordered text-2xl font-bold" />
                         </div>
                         <div class="form-control">
                             <h1>Order Qunatity</h1>
-                            <input type="number" placeholder="order quantity" class="input input-bordered " />
+                            <input name='quantity' type="number" placeholder="order quantity" class="input input-bordered " />
 
                         </div>
                         <div class="form-control mt-6">
                             <button class="btn btn-primary">Purchase</button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
 
         </div>
