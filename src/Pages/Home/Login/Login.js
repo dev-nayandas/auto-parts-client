@@ -100,9 +100,9 @@ const Login = () => {
                                 {signError}
                         <input className='btn  w-full max-w-xs' type="submit" value='login'/>
                     </form>
-                    <p>New to Auto Parts?</p><Link className='text-secondary' to='/signup'>Create an account</Link>
+                    <p className='font-bold'>New to Auto Parts?</p><Link className='text-secondary font-bold' to='/signup'>Create an account</Link>
                     <div class="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} class="btn">Continue With Google</button>
+                    <button onClick={() => signInWithGoogle()} class="btn btn-accent text-base-300">Continue With Google</button>
 
                 </div>
             </div>

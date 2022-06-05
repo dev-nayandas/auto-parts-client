@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div style={{ width: '100%' }}>
+        <div className='grid' style={{ width: '100%' }}>
             <div className='text-center'>
                 <h1 className='text-center text-2xl'>Some Important Question And Answer</h1>
 

@@ -6,16 +6,16 @@ const Parts = () => {
 
 
     useEffect(() => {
-        fetch('https://shrouded-ridge-22657.herokuapp.com/parts')
+        fetch('http://localhost:5000/parts')
             .then(res => res.json())
             .then(data => setParts(data))
 
     }, [])
     return (
         <div className='mt-6 '>
-            <h2 className='text-center text-primary text-3xl'>The Parts We Manufacture</h2>
+            <h2 className='text-center text-primary text-3xl'>The Parts We Are Manufacturing</h2>
 
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid lg:grid-cols-3 sm:grid-cols-12 gap-4 justify-items-center'>
                 {
                     parts.slice(0, 6).map(part => <Part
                         key={part._id}

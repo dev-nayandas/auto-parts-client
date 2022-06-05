@@ -23,7 +23,7 @@ import Users from './Pages/Dashboard/Users';
 
 function App() {
   return (
-    <div >
+    <div  >
       <NavBar></NavBar>
       <Routes>
         <Route path="/" element={<Home/>} />
